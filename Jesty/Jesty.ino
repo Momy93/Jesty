@@ -12,7 +12,7 @@ void setup()
 
 void loop()
 {
-  uint8_t data = 0, data1 = 0;
+  uint8_t data = 0;
 
   if (!paj7620ReadReg(0x43, 1, &data))
   {
@@ -127,8 +127,8 @@ void loop()
         Serial.write(14); //"anti-clockwise"
         break;
       default:
-        paj7620ReadReg(0x44, 1, &data1);
-        if (data1 == GES_WAVE_FLAG)
+        paj7620ReadReg(0x44, 1, &data);
+        if (data == GES_WAVE_FLAG)
         {
           Serial.write(15); //"wave"
         }
